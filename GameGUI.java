@@ -95,15 +95,25 @@ public class GameGUI extends JFrame
                 if(background_Noise.endGame() == 1)
                 {
                     JPanel panel = new JPanel();
-                    panel.setLayout(new BorderLayout());
-                    JLabel label = new JLabel();    
-                    label.setText(" Player 1 wins: " + background_Noise.getWinCount_Player1() + 
-                    "\n" + " Player 2 wins: " + background_Noise.getWinCount_Player2() + 
-                    "\n" + " Draws: " + background_Noise.getDrawCount());
-                    panel.add(label, BorderLayout.CENTER);
+
+                    panel.setLayout(new GridLayout(4, 1));
+
+                    JLabel label = new JLabel();        
+                    JLabel label2 = new JLabel();        
+                    JLabel label3 = new JLabel(); 
+
+                    label.setText(" Player 1 wins: " + background_Noise.getWinCount_Player1());
+                    label2.setText(" Player 2 wins: " + background_Noise.getWinCount_Player2());
+                    label3.setText(" Draws: " + background_Noise.getDrawCount());
+
+                    panel.add(label);
+                    panel.add(label2);
+                    panel.add(label3);
+
                     JButton newGameButton = new JButton("New Game");
                     newGameButton.addActionListener(new newGameButtonListener());
-                    panel.add(newGameButton, BorderLayout.SOUTH);
+                    panel.add(newGameButton);
+
                     getContentPane().removeAll();
                     add(panel);
                     getContentPane().revalidate();
